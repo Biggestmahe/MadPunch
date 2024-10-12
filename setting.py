@@ -1,0 +1,133 @@
+import pygame
+import os 
+from PIL import Image, ImageDraw, ImageFont
+
+
+#constants     
+SCREEN_HEIGHT = 500
+SCREEN_WIDTH = 800
+
+HEALBAR_HEGHT = 90
+HEALBAR_WIDTH = 365
+
+PROFILE_HEIGHT = 300
+PROFILE_WIDTH = 500
+PROFILE_REDIUS = 45
+
+
+PLAYER_HEIGHT = 180
+PLAYER_WIDTH = 80
+HEALTH = 10
+
+PUNCH_DISTANCE = 10
+PUNCH_POWER = 5
+
+KICK_DISTANCE = 13
+KICK_POWER = 3
+
+#physics
+SPEED_x = 3
+V0_JUMP = 10
+MAX_HIGHT = 100
+GRAVITY = 1
+
+#time
+RUN = True
+FPS = 60
+SCREEN = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+clock = pygame.time.Clock()
+
+
+#backgrounf
+FOREST_LEVEL = 465
+TEMPLE_LEVEL = 454
+PIER_LEVEL = 471
+ICELAND_LEVEL = 480
+
+#player 
+BEHRAD_STRENGTH = 10
+BEHRAD_SPEED = 5
+BEHRAD_HEALTH = 10
+BEHRAD_SCALE = [300,250]
+BEHRAD_FIRST_POSITION = [-70,-45]
+BEHRAD_FIRST_POSITION_FLIPPED = [-160,-45]
+
+
+KENNY_STRENGTH = 11
+KENNY_SPEED = 4
+KENNY_HEALTH = 11
+KENNY_SCALE = [300,250]
+KENNY_FIRST_POSITION = [-120,-55]
+KENNY_FIRST_POSITION_FLIPPED = [-105,-55]
+
+REINA_STRENGTH = 9
+REINA_SPEED = 6
+REINA_HEALTH = 8
+REINA_SCALE = [240,270]
+REINA_FIRST_POSITION = [-60,-55]
+REINA_FIRST_POSITION_FLIPPED = [-105,-55]
+
+#act_speed
+WALKING_SPEED = 5
+STANDING_SPEED = 15
+JUMP_SPEED = 10
+CROUCH_SPEED = 10
+DEAD_SPEED =10
+WIN_SPEED = 40
+PUNCH_SPEED = 15
+KICK_SPEED = 10
+HITTED_SPEED = 20
+
+
+
+#final_stage
+WINNER_SHADE_NUMBER = 255
+WINNER_NAME_BOX_HEIGHT = 400
+WINNER_NAME_BOX_WIDTH = 300
+WINNER_NAME_BOX_X = 250
+WINNER_NAME_BOX_Y = 50
+WINNER_NAME_TEXT_SIZE = 55
+WINNER_TIME = 500
+END_DELAY =10
+PLAY_AGAIN_BUTTOM_CORDINATES =(313 ,180)
+EXIT_BUTTOM_CORDINATE = (313 , 300)
+
+#log in 
+
+MAX_LETTERS_USERNAME = 9
+MIN_LETTERS_USERNAME = 3
+MAX_LETTERS_PASSWORD = 7
+MIN_LETTER_PASSWORD = 5
+
+
+#scores 
+WINNING_SCORE = 5
+LOSING_SCORE = -3
+#usefull functions 
+
+def distance (cordinates , O):
+    x = O[0] - cordinates[0]
+    y = O[1] - cordinates[1]
+    r = (x**2 + y**2)**(0.5)
+    return r
+
+def find_level (Background_Number):
+    if Background_Number == 1:
+        return FOREST_LEVEL
+    elif Background_Number == 2 :
+        return TEMPLE_LEVEL 
+    elif Background_Number ==3 :
+        return PIER_LEVEL 
+    else:
+        return ICELAND_LEVEL
+
+def positive(x,y) :
+    if x> y :
+        return x-y
+    else:
+        return y-x
+ 
+
+
+
+
