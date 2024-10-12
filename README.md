@@ -1,1 +1,12 @@
-You need to install Pygame, cryptography, sqlite3 and ctypes libraries in order to play the game. have fun!
+```
+git clone https://github.com/Biggestmahe/MadPunch
+```
+
+```
+pip install requirements.txt
+```
+
+To run the project, do the following: 
+```
+python main.py
+```
